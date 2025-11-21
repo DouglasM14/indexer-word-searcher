@@ -1,28 +1,28 @@
 # compilador
 CC = gcc
 # flags de compilação (ativam warnings e padrão C)
-CFLAGS = -Wall -Wextra -std=c11
+CFLAGS = -Wall -Wextra -std=c11 -Iinclude
 
-# Diretório dos objetos
+# diretório final dos .o
 OBJDIR = build
 
 # nome do executável
 TARGET = main
 
 # pega todos os arquivos .c no diretório atual
-SRC = $(wildcard *.c)
+SRC = $(wildcard src/*.c)
 
-# itera sobre SRC e transforma arquivo *.c em build/*.o
-OBJ = $(SRC:%.c=$(OBJDIR)/%.o)
+# itera sobre SRC e transforma os arquivos src/*.c em build/*.o
+OBJ = $(SRC:src/%.c=$(OBJDIR)/%.o)
 
-# regra padrão: compilar tudo
+# compila o target principal
 all: $(TARGET)
 
 $(TARGET): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(OBJDIR)/$(TARGET)
 
 # Regra para compilar cada .c em .o (colocando os .o dentro de build/)
-$(OBJDIR)/%.o: %.c | $(OBJDIR)
+$(OBJDIR)/%.o: src/%.c | $(OBJDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # Cria a pasta build se não existir

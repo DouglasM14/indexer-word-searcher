@@ -28,6 +28,7 @@ void executa_comando(char * comando, char * argumento) {
   int comparacoes = 0;
   int ocorrencias = 0;
   // ListaLigada * indiceLinhas;
+  // TODO: implementar lista ligada para guardar o INDICE de todas as LINHAS onde foram encontradas
   
   if (strcmp(comando, "busca") == 0) {
     if (strcmp(TIPO_INDICE, "arvore") == 0) {
@@ -39,6 +40,7 @@ void executa_comando(char * comando, char * argumento) {
     if (achou) {
       printf("Existe(m) %d ocorrencia(s) da palavra %s na(s) seguinte(s) linha(s):\n", ocorrencias, argumento);
       // imprime_linhas(indiceLinhas);
+      // TODO: criar função que imprime as linhas
     } else {
       printf("Palavra '%s' nao encontrada.\n", argumento);
     }
