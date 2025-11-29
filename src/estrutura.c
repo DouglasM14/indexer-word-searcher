@@ -3,7 +3,7 @@
 #include <string.h>
 
 #include "estrutura.h"
-#include "lista_ligada.h"
+#include "lista_ligada_char.h"
 #include "arvore_binaria.h"
 
 // TODO: mudar isso aqui (muito if feio demais)
@@ -23,7 +23,7 @@ void cria_estrutura() {
 	if (strcmp(TIPO_INDICE, "arvore") == 0) {
     estrutura = cria_arvore();
   } else if (strcmp(TIPO_INDICE, "lista") == 0) {
-    estrutura = cria_lista_ligada();
+    estrutura = cria_lista_ligada_char();
   }
 }
 

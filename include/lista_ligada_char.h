@@ -1,5 +1,5 @@
-#ifndef LISTA_LIGADA_H
-#define LISTA_LIGADA_H
+#ifndef LISTA_LIGADA_CHAR_H
+#define LISTA_LIGADA_CHAR_H
 
 #define FALSE 0
 #define TRUE 1
@@ -10,18 +10,18 @@ typedef char* Elemento;
 typedef struct _lista_ligada_ ListaLigada;
 
 typedef struct _no_ {
-	Elemento valor;
-	int quantidade;
-	ListaLigada *linhas_texto;
-	struct _no_ * proximo;
+    Elemento valor;
+    int quantidade;
+    ListaLigada *linhas_texto;
+    struct _no_ * proximo;
 } No;
 
 struct _lista_ligada_ {
-	No * primeiro;
-	int tamanho;
+    No * primeiro;
+    int tamanho;
 };
 
-ListaLigada * cria_lista_ligada();
+ListaLigada * cria_lista_ligada_char();
 void destroi_lista(ListaLigada * lista);
 void imprime_ligada(ListaLigada * lista);
 int busca_ligada(ListaLigada * lista, Elemento e);

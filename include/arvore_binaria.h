@@ -1,7 +1,7 @@
 #ifndef ARVORE_BINARIA_H
 #define ARVORE_BINARIA_H
 
-#include "lista_ligada.h"
+#include "lista_ligada_char.h"
 
 #define FALSE 0
 #define TRUE 1

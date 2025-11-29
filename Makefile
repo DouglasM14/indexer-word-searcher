@@ -11,8 +11,8 @@ OBJDIR = build
 # nome do executável
 TARGET = main
 
-# pega todos os arquivos .c no diretório atual
-SRC = $(wildcard src/*.c)
+# pega todos os arquivos .c no diretório atual, exceto o antigo lista_ligada.c
+SRC = $(filter-out src/lista_ligada.c, $(wildcard src/*.c))
 
 # itera sobre SRC e transforma os arquivos src/*.c em build/*.o
 OBJ = $(SRC:src/%.c=$(OBJDIR)/%.o)
