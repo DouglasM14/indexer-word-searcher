@@ -30,12 +30,12 @@ typedef struct {
 } Arvore;
 
 Arvore * cria_arvore();
-void imprime_bin(Arvore * arvore);
 NoBin * busca_bin(Arvore * arvore, Elemento e, int * comparacoes);
-Boolean insere_bin(Arvore * arvore, Elemento e, int linha);
+void imprime_bin(Arvore * arvore);
+void dados_arvore(Arvore * arvore, char * palavra, int * ocorrencias, int * comparacoes);
 int pega_altura(Arvore * arvore);
 int tamanho_arvore(Arvore * arvore);
-void dados_arvore(Arvore * arvore, char * palavra, int * ocorrencias, int * comparacoes);
+Boolean insere_bin(Arvore * arvore, Elemento e, int linha);
 
 void display_arvore(Arvore * arvore);
 

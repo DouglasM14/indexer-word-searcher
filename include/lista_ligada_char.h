@@ -24,9 +24,11 @@ struct _lista_ligada_char_ {
 };
 
 ListaLigadaChar * cria_lista_ligada_char();
+NoChar * busca_ligada_char(ListaLigadaChar * lista, ElementoChar e, int * comparacoes);
 void destroi_ligada_char(ListaLigadaChar * lista);
 void imprime_ligada_char(ListaLigadaChar * lista);
-int busca_ligada_char(ListaLigadaChar * lista, ElementoChar e);
+void dados_ligada_char(ListaLigadaChar * lista, char * palavra, int * ocorrencias, int * comparacoes);
+int tamanho_lista_ligada_char(ListaLigadaChar * lista);
 Boolean insere_ligada_char(ListaLigadaChar * lista, ElementoChar e, int linha);
 
 #endif

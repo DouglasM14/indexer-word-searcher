@@ -33,40 +33,46 @@ void destroi_ligada_char(ListaLigadaChar * lista){
 }
 
 void imprime_ligada_char(ListaLigadaChar * lista){
-
+	FILE *fp = fopen("build/lista.out", "w");
     NoChar * p;
 
-    printf("Lista:\n");
+    fprintf(fp, "Lista:\n");
     int i = 0;
-    for(p = lista->primeiro; p; p = p->proximo){
-        printf("indice: %d, %s, %d\n", i, p->valor, p->quantidade);
+    for (p = lista->primeiro; p; p = p->proximo){
+        fprintf(fp, "| i: %03d | %-16s | qtd: %02d |", i, p->valor, p->quantidade);
 
-        NoInt *q = p->linhas_texto->primeiro;
-
-        while (q) {
-            printf("[%d]: ", q->valor);
-            imprime_indice(linhas, q->valor);
-            printf("\n");
-            q = q->proximo;
+        if (p->proximo) {
+            fprintf(fp, "\n");
         }
+
+        // NoInt *q = p->linhas_texto->primeiro;
+
+        // while (q) {
+        //     fprintf(fp, "[%d]: ", q->valor);
+        //     fprintf(fp, "\n");
+        //     q = q->proximo;
+        // }
         
         i++;
     }
 
-    printf("\n");
+    fclose(fp);
 }
 
-int busca_ligada_char(ListaLigadaChar * lista, ElementoChar e){
-
-    int i = 0;
+NoChar * busca_ligada_char(ListaLigadaChar * lista, ElementoChar e, int * comparacoes){
     NoChar * p = lista->primeiro;
 
-    while(p && p->valor != e){
+    (*comparacoes)++;
+    while (p && strcmp(p->valor, e) != 0){
+        (*comparacoes)++;
         p = p->proximo;
-        i++;
     }
 
-    return p ? i : -1;
+    return p;
+}
+
+int tamanho_lista_ligada_char(ListaLigadaChar * lista){
+    return lista->tamanho;
 }
 
 Boolean insere_ligada_char(ListaLigadaChar * lista, ElementoChar e, int linha){
@@ -111,4 +117,12 @@ Boolean insere_ligada_char(ListaLigadaChar * lista, ElementoChar e, int linha){
 
     lista->tamanho++;
     return TRUE;
+}
+
+void dados_ligada_char(ListaLigadaChar * lista, char * palavra, int * ocorrencias, int * comparacoes) {
+	NoChar * node = busca_ligada_char(lista, palavra, comparacoes);
+
+	if (node) {
+		*ocorrencias = node->quantidade;
+	}
 }
