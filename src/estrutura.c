@@ -11,18 +11,18 @@ Operacoes ops_estruturas[NUM_ESTRUTURAS];
 
 void cria_funcoes() {
 	// ARVORE
-	ops_estruturas[ARVORE].cria =    cria_arvore;
-	ops_estruturas[ARVORE].insere =  insere_bin;
-	ops_estruturas[ARVORE].tamanho = tamanho_arvore;
-	ops_estruturas[ARVORE].imprime = display_arvore;
-	ops_estruturas[ARVORE].dados =   dados_arvore;
+	ops_estruturas[ARVORE].cria =    (FuncaoCria) cria_arvore;
+	ops_estruturas[ARVORE].insere =  (FuncaoInsere) insere_bin;
+	ops_estruturas[ARVORE].tamanho = (FuncaoTamanho) tamanho_arvore;
+	ops_estruturas[ARVORE].imprime = (FuncaoImprime) display_arvore;
+	ops_estruturas[ARVORE].dados =   (FuncaoDados) dados_arvore;
 
 	// LISTA LIGADA
-	ops_estruturas[LIGADA].cria =    cria_lista_ligada_char;
-	ops_estruturas[LIGADA].tamanho = tamanho_lista_ligada_char;
-	ops_estruturas[LIGADA].imprime = imprime_ligada_char;
-	ops_estruturas[LIGADA].insere =  insere_ligada_char;
-	ops_estruturas[LIGADA].dados =  dados_ligada_char;
+	ops_estruturas[LIGADA].cria =    (FuncaoCria) cria_lista_ligada_char;
+	ops_estruturas[LIGADA].tamanho = (FuncaoTamanho) tamanho_lista_ligada_char;
+	ops_estruturas[LIGADA].imprime = (FuncaoImprime) imprime_ligada_char;
+	ops_estruturas[LIGADA].insere =  (FuncaoInsere) insere_ligada_char;
+	ops_estruturas[LIGADA].dados =   (FuncaoDados) dados_ligada_char;
 	
 	// HASH
 }
